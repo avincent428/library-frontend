@@ -6,7 +6,7 @@ function SearchBar(props) {
 
   function handleSubmit(event) {
     event.preventDefault()
-    // call the api
+    // call the api testing to see if works
   }
 
   function handleChange(event) {

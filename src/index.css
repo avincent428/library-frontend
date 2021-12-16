@@ -12,10 +12,32 @@ section {
 
 .book {
   margin-right: 400px;
+  display: flex;
+  border: solid black 1px;
+  height: 120px;
+  width: 700px;
 }
 
 .filter {
   border-right: 1px solid black;
   padding-right: 200px;
   height: 100vh;
+}
+
+.book-image {
+  width: 75px;
+  height: 100px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.book-info {
+  padding-top: 15px;
+  margin-left: 10px;
+}
+
+.book-availability {
+  margin-left: 300px;
+  margin-top: 50px;
+  color: green;
 }

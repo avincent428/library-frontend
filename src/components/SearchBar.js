@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 
 function SearchBar(props) {
+  const [searchString, setSearchString] = useState([])
+  const [books, setBooks] = useState()
+
+  function handleSubmit(event) {
+    event.preventDefault()
+    // call the api testing to see if works
+  }
+
+  function handleChange(event) {
+    setSearchString(event.target.value)
+  }
   return (
     <div>
-      <input type="text" />
+      <input 
+        placeholder="Search"
+        type="text"
+        onChange={handleChange}
+        value={searchString}
+      />
       <button type="submit">Enter </button>
+      {/* {books.map(book => (
+        <SearchResults
+           book={book}
+        />
+      ))} */}
     </div>
   );
 }

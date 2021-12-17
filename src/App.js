@@ -2,6 +2,7 @@ import Book from "./components/Book";
 import Filter from "./components/Filter";
 import SearchBar from "./components/SearchBar";
 import Title from "./components/Title";
+import Pages from "./components/Pages";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 
@@ -44,6 +45,8 @@ function App() {
           <Filter />
           <Book books={books} />
         </section>
+
+        <Pages />
       </main>
     </div>
   );

@@ -8,7 +8,7 @@ import React, { useState, useEffect } from "react";
 
 function App() {
   const [books, setBooks] = useState([]);
-  const [searchString, setSearchString] = useState('')
+  const [searchString, setSearchString] = useState("");
 
   useEffect(() => {
     getData();
@@ -28,7 +28,7 @@ function App() {
     <div>
       <header>
         <Title />
-        <SearchBar 
+        <SearchBar
           getData={getData}
           searchString={searchString}
           setSearchString={setSearchString}

@@ -1,12 +1,11 @@
 import React, { useState } from "react";
+import axios from 'axios'
 
-function SearchBar(props) {
-  const [searchString, setSearchString] = useState([])
-  const [books, setBooks] = useState()
+function SearchBar({ getData, books, setBooks, searchString, setSearchString, setTargetData, targetData }) {
 
   function handleSubmit(event) {
     event.preventDefault()
-    // call the api testing to see if works
+    getData()
   }
 
   function handleChange(event) {
@@ -14,18 +13,15 @@ function SearchBar(props) {
   }
   return (
     <div>
-      <input 
-        placeholder="Search"
-        type="text"
-        onChange={handleChange}
-        value={searchString}
-      />
-      <button type="submit">Enter </button>
-      {/* {books.map(book => (
-        <SearchResults
-           book={book}
+      <form onSubmit={handleSubmit}>
+        <input 
+          placeholder="Search"
+          type="text"
+          onChange={handleChange}
+          value={searchString}
         />
-      ))} */}
+      {/* <button type="submit" >Enter </button> */}
+      </form>
     </div>
   );
 }

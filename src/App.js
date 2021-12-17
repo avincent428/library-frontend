@@ -13,10 +13,19 @@ function App() {
     getData();
   }, [searchString]);
 
+  // function splitWords(sentence) {
+  //   let words = sentence.split(" ")
+  //   for (let i = 0; i < words.length; i++) {
+  //     words[i] = words[i][0].toUpperCase() + words[i]
+  //   }
+  //   words.join(" ")
+  // }
+
   function getData() {
     axios.get("http://localhost:8000/books").then((res) => {
       const bookData = res.data;
-      setBooks(bookData.filter(book => book.title.toLowerCase().includes(searchString)));
+      setSearchString(searchString.toLowerCase())
+      setBooks(bookData.filter(book => book.title.toLowerCase().includes(searchString)))
     });
   }
   return (

@@ -18,9 +18,7 @@ function SearchBar({ getData, books, setBooks, searchString, setSearchString, se
           placeholder="Search"
           type="text"
           onChange={handleChange}
-          value={searchString}
         />
-      {/* <button type="submit" >Enter </button> */}
       </form>
     </div>
   );

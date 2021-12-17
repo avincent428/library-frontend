@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios'
 
-function SearchBar({ getData, books, setBooks, searchString, setSearchString, setTargetData, targetData }) {
+function SearchBar({ getData, searchString, setSearchString, setTargetData, targetData }) {
 
   function handleSubmit(event) {
     event.preventDefault()

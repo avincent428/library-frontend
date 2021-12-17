@@ -8,25 +8,20 @@ import React, { useState, useEffect } from "react";
 
 function App() {
   const [books, setBooks] = useState([]);
-  const [searchString, setSearchString] = useState([])
+  const [searchString, setSearchString] = useState('')
 
   useEffect(() => {
     getData();
   }, [searchString]);
 
-  // function splitWords(sentence) {
-  //   let words = sentence.split(" ")
-  //   for (let i = 0; i < words.length; i++) {
-  //     words[i] = words[i][0].toUpperCase() + words[i]
-  //   }
-  //   words.join(" ")
-  // }
-
   function getData() {
     axios.get("http://localhost:8000/books").then((res) => {
       const bookData = res.data;
       setSearchString(searchString.toLowerCase())
-      setBooks(bookData.filter(book => book.title.toLowerCase().includes(searchString)))
+      setBooks(bookData.filter(function (book) {
+        if (book.title.toLowerCase().includes(searchString) || book.authors[0].toLowerCase().includes(searchString))
+          return true
+        }))
     });
   }
   return (

@@ -7,22 +7,27 @@ import React, { useState, useEffect } from "react";
 
 function App() {
   const [books, setBooks] = useState([]);
+  const [searchString, setSearchString] = useState([])
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [searchString]);
 
   function getData() {
     axios.get("http://localhost:8000/books").then((res) => {
       const bookData = res.data;
-      setBooks(bookData);
+      setBooks(bookData.filter(book => book.title.toLowerCase().includes(searchString)));
     });
   }
   return (
     <div>
       <header>
         <Title />
-        <SearchBar />
+        <SearchBar 
+          getData={getData}
+          searchString={searchString}
+          setSearchString={setSearchString}
+        />
       </header>
 
       <main>

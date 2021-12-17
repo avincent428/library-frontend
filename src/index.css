@@ -52,3 +52,7 @@ section {
   cursor: pointer;
   white-space: nowrap;
 }
+
+.genre-container {
+  cursor: pointer;
+}

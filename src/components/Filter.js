@@ -3,11 +3,26 @@ import React from "react";
 function Filter(props) {
   return (
     <div className="filter">
-      Filter
+      <p>Genre</p>
+      <label className="container">
+        <input type="checkbox" />
+        Juvenile-Fiction
+      </label>
       <br />
-      <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-      <label for="vehicle1"> I have a bike</label>
-      <br></br>
+      <label className="container">
+        <input type="checkbox" />
+        Fiction
+      </label>
+      <br />
+      <label className="container">
+        <input type="checkbox" />
+        Science Fiction
+      </label>
+      <br />
+      <label className="container">
+        <input type="checkbox" />
+        Fantasy
+      </label>
     </div>
   );
 }

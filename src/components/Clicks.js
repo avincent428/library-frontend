@@ -7,15 +7,17 @@ function Clicks(props) {
     const [book, setBook] = useState([]);
 
     useEffect(() => {
-      fetch()
-  .then(res => res.json())
-  .then(json => {
-      setBook(json);
-  })
-  .catch(console.error);
-  }, [props.match.params.id]);
-  if (!book) return (<div>loading</div>)
+      getData();
+    }, []);
 
+    function getData() {
+        axios.get("http://localhost:8000/books").then((res) => {
+          const bookData = res.data;
+          setBook(bookData);
+        });
+      }
+      if (!book) return (<div>loading</div>)
+      
   return (
     <div className="book-details">
       <img

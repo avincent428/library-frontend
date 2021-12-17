@@ -1,7 +1,15 @@
 import React from "react";
 
 function Filter(props) {
-  return <div className="filter">filter</div>;
+  return (
+    <div className="filter">
+      Filter
+      <br />
+      <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
+      <label for="vehicle1"> I have a bike</label>
+      <br></br>
+    </div>
+  );
 }
 
 export default Filter;

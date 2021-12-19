@@ -1,5 +1,4 @@
 function Book(props) {
-  
   return (
     <div>
       {props.books.map((book) => {
@@ -10,7 +9,10 @@ function Book(props) {
               <p>{book.title}</p>
               <p>{book.authors[0]}</p>
             </div>
-            <p className="book-availability">available</p>
+            {book.available 
+            ? <p className="book-availability">available</p> 
+            : <p className="book-availability">checked out</p>
+            }
           </div>
         );
       })}

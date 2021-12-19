@@ -1,19 +1,13 @@
 import React, { useState } from "react";
-import axios from 'axios'
 
-function SearchBar({ getData, searchString, setSearchString, setTargetData, targetData }) {
-
-  function handleSubmit(event) {
-    event.preventDefault()
-    getData()
-  }
+function SearchBar({ searchString, setSearchString }) {
 
   function handleChange(event) {
-    setSearchString(event.target.value)
+    setSearchString(event.target.value);
   }
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form>
         <input 
           placeholder="Search"
           type="text"

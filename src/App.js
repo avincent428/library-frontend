@@ -32,7 +32,6 @@ function App() {
   function getData() {
     axios.get("http://localhost:8000/books").then((res) => {
       const bookData = res.data;
-      console.log(bookData)
       setSearchString(searchString.toLowerCase());
       setBooks(bookData.filter((book) => {
         if ((book.title.toLowerCase().includes(searchString) && goThroughWords(book.title.toLowerCase(), searchString)) || (book.authors[0].toLowerCase().includes(searchString) && goThroughWords(book.authors[0].toLowerCase(), searchString)))

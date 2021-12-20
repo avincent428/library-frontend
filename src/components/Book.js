@@ -26,9 +26,9 @@ function Book(props) {
               <p>{book.authors[0]}</p>
             </div>
             {book.available ? (
-              <p className="book-availability">available</p>
+              <p className="available">available</p>
             ) : (
-              <p className="book-availability">checked out</p>
+              <p className="checked-out">checked out</p>
             )}
             <div className="book-modal">
               <button onClick={() => onClick(book)}>More Info</button>

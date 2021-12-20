@@ -42,8 +42,14 @@ section {
   margin-top: 15px;
 }
 
-.book-availability {
+.available {
   color: green;
+  margin-right: 20px;
+  margin-top: 50px;
+}
+
+.checked-out {
+  color: rgb(180, 4, 4);
   margin-right: 20px;
   margin-top: 50px;
 }
@@ -54,6 +60,10 @@ section {
 }
 
 .genre-container {
+  cursor: pointer;
+}
+
+.availability-container {
   cursor: pointer;
 }
 
@@ -74,7 +84,8 @@ section {
   background-color: #fff;
 }
 
-.modal-header, .modal-footer {
+.modal-header,
+.modal-footer {
   padding: 10px;
 }
 

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import Modal from "./Modal";
-import axios from 'axios'
+import axios from "axios";
 
 function Book(props) {
   const [show, setShow] = useState(false);
@@ -15,9 +15,9 @@ function Book(props) {
     handleShowItem(item);
   }
 
-  return ( 
+  return (
     <div>
-      {props.books.map((book, i) => {
+      {props.filteredBooks.map((book, i) => {
         return (
           <div className="book" key={book._id}>
             <img src={book.image} alt={book.title} className="book-image" />
@@ -25,13 +25,18 @@ function Book(props) {
               <p>{book.title}</p>
               <p>{book.authors[0]}</p>
             </div>
-            {book.available 
-              ? <p className="book-availability">available</p> 
-              : <p className="book-availability">checked out</p>
-            }
+            {book.available ? (
+              <p className="book-availability">available</p>
+            ) : (
+              <p className="book-availability">checked out</p>
+            )}
             <div className="book-modal">
               <button onClick={() => onClick(book)}>More Info</button>
-              <Modal onClose={() => setShow(false)} show={show} modalInfo={modalInfo}/>
+              <Modal
+                onClose={() => setShow(false)}
+                show={show}
+                modalInfo={modalInfo}
+              />
             </div>
           </div>
         );

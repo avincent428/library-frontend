@@ -4,21 +4,15 @@ import axios from 'axios'
 
 function Book(props) {
   const [show, setShow] = useState(false);
-  const [showItem, setShowItem] = useState(false)
-  const [modalInfo, setModalInfo] = useState("")
+  const [modalInfo, setModalInfo] = useState("");
+
   function handleShowItem(data) {
-    setShowItem(true)
-    setModalInfo(data)
+    setModalInfo(data);
   }
 
   function onClick(item) {
     setShow(true);
-    handleShowItem(item)
-  }
-
-  function onClose() {
-    setShow(false)
-    setShowItem(false)
+    handleShowItem(item);
   }
 
   return ( 

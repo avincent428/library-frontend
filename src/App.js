@@ -9,6 +9,7 @@ import React, { useState, useEffect } from "react";
 function App() {
   const [books, setBooks] = useState([]);
   const [searchString, setSearchString] = useState("");
+  const [filteredBooks, setFilteredBooks] = useState([]);
 
   useEffect(() => {
     getData();
@@ -22,10 +23,12 @@ function App() {
     let splitString = str.split(" ");
     for (let i = 0; i < splitWords.length; i++) {
       for (let j = 0; j < splitString.length; j++) {
-        if (splitWords[i].startsWith(searchString) || splitWords[i] === splitString[j]) 
+        if (
+          splitWords[i].startsWith(searchString) ||
+          splitWords[i] === splitString[j]
+        )
           return true;
       }
-
     }
   }
 
@@ -33,15 +36,21 @@ function App() {
     axios.get("http://localhost:8000/books").then((res) => {
       const bookData = res.data;
       setSearchString(searchString.toLowerCase());
-      setBooks(bookData.filter((book) => {
-        if ((book.title.toLowerCase().includes(searchString) && goThroughWords(book.title.toLowerCase(), searchString)) || (book.authors[0].toLowerCase().includes(searchString) && goThroughWords(book.authors[0].toLowerCase(), searchString)))
+      const tempBooks = bookData.filter((book) => {
+        if (
+          (book.title.toLowerCase().includes(searchString) &&
+            goThroughWords(book.title.toLowerCase(), searchString)) ||
+          (book.authors[0].toLowerCase().includes(searchString) &&
+            goThroughWords(book.authors[0].toLowerCase(), searchString))
+        )
           return true;
-        else
-          return false;
-        }))
+        else return false;
+      });
+      setBooks(tempBooks);
+      setFilteredBooks(tempBooks);
     });
   }
-  
+
   return (
     <div>
       <header>
@@ -55,8 +64,8 @@ function App() {
 
       <main>
         <section>
-          <Filter />
-          <Book books={books} />
+          <Filter books={books} setFilteredBooks={setFilteredBooks} />
+          <Book books={books} filteredBooks={filteredBooks} />
         </section>
 
         <Pages />

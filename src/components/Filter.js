@@ -1,36 +1,64 @@
-import React from "react";
-import { useState } from "react/cjs/react.development";
+import React, { useState } from "react";
 
 function Filter(props) {
   const [toggle, setToggle] = useState({ open: false });
 
-  function handleClick() {
+  const [fantasyFilter, setFantasyFilter] = useState({ checked: true });
+  const [juvFicFilter, setJuvFicFilter] = useState({ checked: true });
+  const [ficFilter, setFicFilter] = useState({ checked: true });
+  const [scifiFilter, setSciFiFilter] = useState({ checked: true });
+  const [graphNovFilter, setGraphNovFilter] = useState({ checked: true });
+  const [nonFicFilter, setNonFicFilter] = useState({ checked: true });
+  const [mysteryFilter, setMysteryFilter] = useState({ checked: true });
+  const [comicStripFilter, setComicStripFilter] = useState({ checked: true });
+
+  function handleGenreClick() {
     const open = toggle.open;
     setToggle({ open: !open });
+  }
+
+  function handleClick(genre, genreFilter, setGenreFilter) {
+    const checked = genreFilter.checked;
+    setGenreFilter({ checked: !checked });
+    if (genreFilter.checked === true) {
+      let booksFiltered = props.books.filter((book) => book.genre === genre);
+      props.setFilteredBooks(booksFiltered);
+    }
+    if (genreFilter.checked === false) {
+      props.setFilteredBooks(props.books);
+    }
+  }
+
+  function createGenre(genre, genreFilter, setGenreFilter) {
+    return (
+      <label className="container">
+        <input
+          type="checkbox"
+          onClick={() => handleClick(genre, genreFilter, setGenreFilter)}
+        />
+        {genre}
+      </label>
+    );
   }
 
   function genreOptions() {
     return (
       <div className="genre-options">
-        <label className="container">
-          <input type="checkbox" />
-          Juvenile-Fiction
-        </label>
+        {createGenre("Juvenile-Fiction", juvFicFilter, setJuvFicFilter)}
         <br />
-        <label className="container">
-          <input type="checkbox" />
-          Fiction
-        </label>
+        {createGenre("Fiction", ficFilter, setFicFilter)}
         <br />
-        <label className="container">
-          <input type="checkbox" />
-          Science Fiction
-        </label>
+        {createGenre("Science Fiction", scifiFilter, setSciFiFilter)}
         <br />
-        <label className="container">
-          <input type="checkbox" />
-          Fantasy
-        </label>
+        {createGenre("Fantasy", fantasyFilter, setFantasyFilter)}
+        <br />
+        {createGenre("Graphic Novel", graphNovFilter, setGraphNovFilter)}
+        <br />
+        {createGenre("Non-Fiction", nonFicFilter, setNonFicFilter)}
+        <br />
+        {createGenre("Mystery", mysteryFilter, setMysteryFilter)}
+        <br />
+        {createGenre("Comic Strip", comicStripFilter, setComicStripFilter)}
       </div>
     );
   }
@@ -39,7 +67,7 @@ function Filter(props) {
     <div className="filter">
       Filters:
       <br />
-      <p className="genre-container" onClick={handleClick}>
+      <p className="genre-container" onClick={handleGenreClick}>
         Genre
       </p>
       {toggle.open ? genreOptions() : null}

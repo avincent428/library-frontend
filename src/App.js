@@ -12,38 +12,6 @@ function App() {
   const [books, setBooks] = useState([]);
   const [searchString, setSearchString] = useState("");
 
-  // useEffect(() => {
-  //   getData();
-  // }, [searchString]);
-
-  // /* this function goes through the words and makes sure the search parameters
-  //    only starts with the words, doesn't just contain the combination of letters
-  //    I had to add the split string so that the search wouldn't stop after a space */
-  // function goThroughWords(words, str) {
-  //   let splitWords = words.split(" ");
-  //   let splitString = str.split(" ");
-  //   for (let i = 0; i < splitWords.length; i++) {
-  //     for (let j = 0; j < splitString.length; j++) {
-  //       if (splitWords[i].startsWith(searchString) || splitWords[i] === splitString[j]) 
-  //         return true;
-  //     }
-
-  //   }
-  // }
-
-  // function getData() {
-  //   axios.get("http://localhost:8000/books").then((res) => {
-  //     const bookData = res.data;
-  //     setSearchString(searchString.toLowerCase());
-  //     setBooks(bookData.filter((book) => {
-  //       if ((book.title.toLowerCase().includes(searchString) && goThroughWords(book.title.toLowerCase(), searchString)) || (book.authors[0].toLowerCase().includes(searchString) && goThroughWords(book.authors[0].toLowerCase(), searchString)))
-  //         return true;
-  //       else
-  //         return false;
-  //       }))
-  //   });
-  // }
-  
   return (
     <div>
        <main>

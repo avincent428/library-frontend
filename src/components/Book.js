@@ -4,18 +4,6 @@ import SearchBar from './SearchBar';
 import Title from './Title';
 
 function Book(props) {
-  // const [show, setShow] = useState(false);
-  // const [modalInfo, setModalInfo] = useState("");
-
-  // function handleShowItem(data) {
-  //   setModalInfo(data);
-  // }
-
-  // function onClick(item) {
-  //   setShow(true);
-  //   handleShowItem(item);
-  // }
-
   useEffect(() => {
     getData();
   }, [props.searchString]);
@@ -48,7 +36,7 @@ function Book(props) {
     });
   }
 
-  return ( 
+  return (
     <div>
       <header>
         <Title />
@@ -70,10 +58,6 @@ function Book(props) {
               ? <p className="book-availability">available</p> 
               : <p className="book-availability">checked out</p>
             }
-            {/* <div className="book-modal">
-              <button>More Info</button> */}
-              {/* <Modal onClose={() => setShow(false)} show={show} modalInfo={modalInfo} setModalInfo={setModalInfo}/> */}
-            {/* </div> */}
           </div>
         );
       })}

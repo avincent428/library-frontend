@@ -87,3 +87,45 @@ section {
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
 }
+
+/* AddBook text boxes */
+
+#title-text-box {
+  margin-left: 70px;
+}
+
+#author-text-box {
+  margin-left: 54px;
+}
+
+#genre-text-box {
+  margin-left: 60px;
+}
+
+#isbn-text-box {
+  margin-left: 63px;
+}
+
+#format-text-box {
+  margin-left: 53px;
+}
+
+#available-text-box {
+  margin-left: 39px;
+}
+
+#description-text-box {
+  margin-left: 25px;
+}
+
+#published-text-box {
+  margin-left: 3px;
+}
+
+#location-text-box {
+  margin-left: 43px;
+}
+
+#image-text-box {
+  margin-left: 24px;
+}

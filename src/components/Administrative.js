@@ -3,10 +3,14 @@ import Modal from './Modal';
 import SearchBar from './SearchBar';
 import axios from 'axios';
 import Title from './Title';
+import Pages from './Pages';
+import AddBook from './AddBook';
 
 function Administrative(props) {
     const [show, setShow] = useState(false);
+    const [showAdd, setShowAdd] = useState(false);
     const [modalInfo, setModalInfo] = useState("");
+    const [bookIndex, setBookIndex] = useState("")
 
     useEffect(() => {
         getData();
@@ -46,12 +50,10 @@ function Administrative(props) {
   
     function onClick(item) {
       setShow(true);
+      setBookIndex(props.books.indexOf(item))
       handleShowItem(item);
     }
 
-    function setBookDataFunction(updatedData) {
-        props.setBooks({...updatedData, available: !updatedData.available})
-    }
     return (
         <div>
             <header>
@@ -60,6 +62,15 @@ function Administrative(props) {
                     getData={getData}
                     searchString={props.searchString}
                     setSearchString={props.setSearchString}
+                />
+                <button onClick={() => setShowAdd(true)}>Add Book</button>
+                <AddBook 
+                  onClose={() => setShowAdd(false)}
+                  showAdd={showAdd}
+                  modalInfo={modalInfo} 
+                  setModalInfo={setModalInfo} 
+                  books={props.books} 
+                  setBooks={props.setBooks}
                 />
             </header>
             {props.books.map(book => {
@@ -76,11 +87,19 @@ function Administrative(props) {
                         }
                         <div className="book-modal">
                             <button onClick={() => onClick(book)}>More Info</button>
-                            <Modal onClose={() => setShow(false)} show={show} modalInfo={modalInfo} setModalInfo={setModalInfo} books={props.books} setBooks={props.setBooks} setBookDataFunction={setBookDataFunction} book={book}/>
                         </div>
                     </div>
                 );
             })}
+            <Modal 
+                onClose={() => setShow(false)} 
+                show={show} 
+                modalInfo={modalInfo} 
+                setModalInfo={setModalInfo} 
+                books={props.books} 
+                setBooks={props.setBooks}
+            />
+            <Pages />
         </div>
     );
 }

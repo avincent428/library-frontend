@@ -19,7 +19,7 @@ function App() {
         </section>
         <Route path="/administrative" exact render={() => <Administrative books={books} setBooks={setBooks} searchString={searchString} setSearchString={setSearchString}/>}></Route>
         <Route path="/user" exact render={() => <Book books={books} setBooks={setBooks} searchString={searchString} setSearchString={setSearchString}/>}></Route>
-        <Pages />
+        
       </main>
     </div>
   );

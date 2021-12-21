@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SearchBar from './SearchBar';
 import Title from './Title';
+import Pages from './Pages';
 
 function Book(props) {
   useEffect(() => {
@@ -61,6 +62,7 @@ function Book(props) {
           </div>
         );
       })}
+      <Pages />
     </div>
   );
 }

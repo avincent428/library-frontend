@@ -2,22 +2,14 @@ import React, {useState} from 'react';
 import axios from 'axios';
 
 function AddBook({modalInfo, books, setModalInfo, showAdd, setBooks, onClose}) {
-    const [textInput, setTextInput] = useState("")
+  
     if(!showAdd)
         return null
 
-    function handleChange(event) {
-        setTextInput(event.target.value)
-        setModalInfo(modalInfo => [...modalInfo, textInput]);
-    }
-
     function onClick(event) {
-        axios.post(`http://localhost:8000/books/`, books).then((res) => {
+        axios.post(`http://localhost:8000/books/`, modalInfo).then((res) => {
             const bookData = res.data;
-            console.log(bookData.available)
-            bookData.available = !bookData.available
-            console.log(bookData.available)
-            setBooks(books => [...books.title, textInput])
+            setBooks(books => [...books, bookData])
             event.preventDefault()
         })
     }
@@ -32,18 +24,74 @@ function AddBook({modalInfo, books, setModalInfo, showAdd, setBooks, onClose}) {
                     Body
                 </div>
                 <div className='modal-footer'>
-                    <form onChange={handleChange} >
-                        <input type="text"></input>
-                        <label>
-                            Title
-                            <button 
-                                className='edit-info-button' 
-                                type="submit" 
-                                onClick={(event) => onClick(event, modalInfo._id)} 
-                            >
-                                Add Book
-                            </button>
-                        </label>
+                    <form  >
+                        <div>
+                            <label>
+                                Title:
+                            </label>
+                            <input type="text" id="title-text-box" onChange={(event) => setModalInfo({...modalInfo, title: event.target.value})}></input>
+                        </div>
+                        <div>
+                            <label>
+                                Author:
+                            </label>
+                            <input type="text" id="author-text-box" onChange={(event) => setModalInfo({...modalInfo, authors: event.target.value})}></input>
+                        </div>
+                        <div>
+                            <label>
+                                Genre:
+                            </label>
+                            <input type="text" id="genre-text-box" onChange={(event) => setModalInfo({...modalInfo, genre: event.target.value})}></input>
+                        </div>
+                        <div>
+                            <label>
+                                ISBN:
+                            </label>
+                            <input type="text" id="isbn-text-box" onChange={(event) => setModalInfo({...modalInfo, isbn: event.target.value})}></input>
+                        </div>
+                        <div>
+                            <label>
+                                Format:
+                            </label>
+                            <input type="text" id="format-text-box" onChange={(event) => setModalInfo({...modalInfo, format: event.target.value})}></input>
+                        </div>
+                        <div>
+                            <label>
+                                Available:
+                            </label>
+                            <input type="text" id="available-text-box" onChange={(event) => setModalInfo({...modalInfo, available: event.target.value})}></input>
+                        </div>
+                        <div>
+                            <label>
+                                Description:
+                            </label>
+                            <input type="text" id="description-text-box" onChange={(event) => setModalInfo({...modalInfo, description: event.target.value})}></input>
+                        </div>
+                        <div>
+                            <label>
+                                Year Published:
+                            </label>
+                            <input type="text" id="published-text-box" onChange={(event) => setModalInfo({...modalInfo, published: event.target.value})}></input>
+                        </div>
+                        <div>
+                            <label>
+                                Location:
+                            </label>
+                            <input type="text" id="location-text-box" onChange={(event) => setModalInfo({...modalInfo, location: event.target.value})}></input>
+                        </div>
+                        <div>
+                            <label>
+                                Image URL:
+                            </label>
+                            <input type="text" id="image-text-box" onChange={(event) => setModalInfo({...modalInfo, image: event.target.value})}></input>
+                        </div>
+                        <button 
+                            className='edit-info-button' 
+                            type="submit" 
+                            onClick={(event) => onClick(event)} 
+                        >
+                            Add Book
+                        </button>
                     </form>
                     <button className='modal-button' onClick={onClose}>Close</button>
                 </div>

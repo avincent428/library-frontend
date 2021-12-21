@@ -91,41 +91,147 @@ section {
 /* AddBook text boxes */
 
 #title-text-box {
-  margin-left: 70px;
+  margin-left: 5px;
+}
+
+#title-label {
+  margin-left: 67px;
 }
 
 #author-text-box {
-  margin-left: 54px;
+  margin-left: 5px;
+}
+
+#author-label {
+  margin-left: 52px;
 }
 
 #genre-text-box {
-  margin-left: 60px;
+  margin-left: 5px;
+}
+
+#genre-label {
+  margin-left: 58px;
 }
 
 #isbn-text-box {
-  margin-left: 63px;
+  margin-left: 5px;
+}
+
+#isbn-label {
+  margin-left: 61px;
 }
 
 #format-text-box {
-  margin-left: 53px;
+  margin-left: 5px;
+}
+
+#format-label {
+  margin-left: 51px;
 }
 
 #available-text-box {
-  margin-left: 39px;
+  margin-left: 5px;
+}
+
+#available-label {
+  margin-left: 36px;
 }
 
 #description-text-box {
-  margin-left: 25px;
+  margin-left: 5px;
+}
+
+#description-label {
+  margin-left: 22px;
 }
 
 #published-text-box {
-  margin-left: 3px;
+  margin-left: 5px;
 }
 
 #location-text-box {
-  margin-left: 43px;
+  margin-left: 5px;
+}
+
+#location-label {
+  margin-left: 40px;
 }
 
 #image-text-box {
-  margin-left: 24px;
+  margin-left: 5px;
+}
+
+#image-label {
+  margin-left: 21px;
+}
+
+/* Edit Info Text Boxes */
+
+#edit-title-label {
+  margin-left: 67px;
+}
+
+#edit-title-input {
+  margin-left: 5px;
+}
+
+#edit-author-label {
+  margin-left: 51px;
+}
+
+#edit-author-input {
+  margin-left: 5px;
+}
+
+#edit-genre-label {
+  margin-left: 57px;
+}
+
+#edit-genre-input {
+  margin-left: 5px;
+}
+
+#edit-published-input {
+  margin-left: 5px;
+}
+
+#edit-isbn-label {
+  margin-left: 59px;
+}
+
+#edit-isbn-input {
+  margin-left: 5px;
+}
+
+#edit-format-label {
+  margin-left: 50px;
+}
+
+#edit-format-input {
+  margin-left: 5px;
+}
+
+#edit-description-label {
+  margin-left: 21px;
+}
+
+#edit-description-input {
+  margin-left: 5px;
+}
+
+#edit-location-label {
+  margin-left: 39px;
+}
+
+#edit-location-input {
+  margin-left: 5px;
+}
+
+#edit-image-label {
+  margin-left: 21px;
+}
+
+#edit-image-input {
+  margin-left: 5px;
 }

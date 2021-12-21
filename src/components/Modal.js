@@ -2,37 +2,27 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function Modal(props) {
-    const [checkedOut, setCheckedOut] = useState(false)
-    const [editBookData, setEditBookData] = useState([])
-
     if (!props.show) {
         return null;
     }
 
     function handleChange(event) {
-        // props.setBooks({...props.books[props.book], available: !event.target.checked})
-        // props.setModalInfo({...props.modalInfo, available: !event.target.checked})
-        console.log(event.target.checked)
-        console.group(props.book)
-        setEditBookData(!event.target.checked)
-        // props.setBookDataFunction(event.target.checked)
-        if (checkedOut === false)
-            setCheckedOut(true)
+        console.log(event.target.checked);
+        console.log(props.bookIndex);
+        if (props.modalInfo.available)
+            props.setModalInfo({...props.modalInfo, available: !event.target.checked});
         else
-            setCheckedOut(false)
+            props.setModalInfo({...props.modalInfo, available: event.target.checked}); // this line seems to be key, event.target.checked
     }
 
     function onClick(event, id) {
-        event.preventDefault()
-        
         axios.put(`http://localhost:8000/books/${id}`, props.modalInfo).then((res) => {
-        // axios.get(`http://localhost:8000/books/${id}`, props.modalInfo).then((res) => {
-        const bookData = res.data;
-        console.log(bookData)
-        props.setBookDataFunction(({...props.books, available: editBookData}))
-        // setEditBookData(bookData)
-        console.log(bookData)
-        
+            const bookData = res.data;
+            console.log(bookData.available)
+            bookData.available = !bookData.available
+            console.log(bookData.available)
+            props.setBooks({...props.books, available: props.modalInfo})
+            event.preventDefault()
         })
     }
       
@@ -53,7 +43,13 @@ function Modal(props) {
                         <input type="checkbox"></input>
                         <label>
                             Checked Out / In
-                            <button className='edit-info-button' type="submit" onClick={(event) => onClick(event, props.modalInfo._id)}>Edit</button>
+                            <button 
+                                className='edit-info-button' 
+                                type="submit" 
+                                onClick={(event) => onClick(event, props.modalInfo._id)} 
+                            >
+                                Edit
+                            </button>
                         </label>
                     </form>
                     <button className='modal-button' onClick={props.onClose}>Close</button>

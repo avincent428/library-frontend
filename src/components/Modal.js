@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import axios from 'axios';
 
 function Modal(props) {
@@ -6,14 +6,7 @@ function Modal(props) {
         return null;
     }
 
-    function handleChange(event) {
-        if (props.modalInfo.available)
-            props.setModalInfo({...props.modalInfo, available: !event.target.checked});
-        else
-            props.setModalInfo({...props.modalInfo, available: event.target.checked}); // this line seems to be key, event.target.checked
-    }
-
-    function onClick(event, id) {
+    function editBookInfo(event, id) {
         axios.put(`http://localhost:8000/books/${id}`, props.modalInfo).then((res) => {
             const bookData = res.data;
             props.setBooks({...props.books, bookData});
@@ -43,50 +36,52 @@ function Modal(props) {
                 </div>
                 <div className='modal-footer'>
                     <form>
-                        <input type="checkbox" onChange={handleChange}></input>
-                        <label>
-                            Checked Out / In
-                        </label>
                         <div>
-                            <label>Edit Title:</label>
-                            <input type="text" onChange={(event) => props.setModalInfo({...props.modalInfo, title: event.target.value})}></input>
+                            <label id="edit-title-label">Edit Title:</label>
+                            <input type="text" id="edit-title-input" onChange={(event) => props.setModalInfo({...props.modalInfo, title: event.target.value})}></input>
                         </div>
                         <div>
-                            <label>Edit Author:</label>
-                            <input type="text" onChange={(event) => props.setModalInfo({...props.modalInfo, authors: event.target.value})}></input>
+                            <label id="edit-author-label">Edit Author:</label>
+                            <input type="text" id="edit-author-input" onChange={(event) => props.setModalInfo({...props.modalInfo, authors: event.target.value})}></input>
                         </div>
                         <div>
-                            <label>Edit Genre:</label>
-                            <input type="text" onChange={(event) => props.setModalInfo({...props.modalInfo, genre: event.target.value})}></input>
+                            <label id="edit-genre-label">Edit Genre:</label>
+                            <input type="text" id="edit-genre-input" onChange={(event) => props.setModalInfo({...props.modalInfo, genre: event.target.value})}></input>
                         </div>
                         <div>
-                            <label>Edit Year Published:</label>
-                            <input type="text" onChange={(event) => props.setModalInfo({...props.modalInfo, published: event.target.value})}></input>
+                            <label id="edit-published-label">Edit Year Published:</label>
+                            <input type="text" id="edit-published-input" onChange={(event) => props.setModalInfo({...props.modalInfo, published: event.target.value})}></input>
                         </div>
                         <div>
-                            <label>Edit ISBN:</label>
-                            <input type="text" onChange={(event) => props.setModalInfo({...props.modalInfo, isbn: event.target.value})}></input>
+                            <label id="edit-isbn-label">Edit ISBN:</label>
+                            <input type="text" id="edit-isbn-input" onChange={(event) => props.setModalInfo({...props.modalInfo, isbn: event.target.value})}></input>
                         </div>
                         <div>
-                            <label>Edit Format:</label>
-                            <input type="text" onChange={(event) => props.setModalInfo({...props.modalInfo, format: event.target.value})}></input>
+                            <label id="edit-format-label">Edit Format:</label>
+                            <input type="text" id="edit-format-input" onChange={(event) => props.setModalInfo({...props.modalInfo, format: event.target.value})}></input>
                         </div>
                         <div>
-                            <label>Edit Description:</label>
-                            <textarea rows="5" columns="1" onChange={(event) => props.setModalInfo({...props.modalInfo, description: event.target.value})}></textarea>
+                            <label id="edit-description-label">Edit Description:</label>
+                            <textarea rows="5" columns="1" id="edit-description-input" onChange={(event) => props.setModalInfo({...props.modalInfo, description: event.target.value})}></textarea>
                         </div>
                         <div>
-                            <label>Edit Location:</label>
-                            <input type="text" onChange={(event) => props.setModalInfo({...props.modalInfo, location: event.target.value})}></input>
+                            <label id="edit-location-label">Edit Location:</label>
+                            <input type="text" id="edit-location-input" onChange={(event) => props.setModalInfo({...props.modalInfo, location: event.target.value})}></input>
                         </div>
                         <div>
-                            <label>Edit Image URL:</label>
-                            <input type="text" onChange={(event) => props.setModalInfo({...props.modalInfo, image: event.target.value})}></input>
+                            <label id="edit-image-label">Edit Image URL:</label>
+                            <input type="text" id="edit-image-input" onChange={(event) => props.setModalInfo({...props.modalInfo, image: event.target.value})}></input>
+                        </div>
+                        <div>
+                            <input type="checkbox" onChange={(event) => props.setModalInfo({...props.modalInfo, available: !event.target.checked})} checked={!props.modalInfo.available}></input>
+                            <label>
+                                Checked Out
+                            </label>
                         </div>
                         <button 
                             className='edit-info-button' 
                             type="submit" 
-                            onClick={(event) => onClick(event, props.modalInfo._id)} 
+                            onClick={(event) => editBookInfo(event, props.modalInfo._id)} 
                         >
                             Edit
                         </button>

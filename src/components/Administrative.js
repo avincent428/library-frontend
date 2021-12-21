@@ -5,6 +5,7 @@ import axios from 'axios';
 import Title from './Title';
 import Pages from './Pages';
 import AddBook from './AddBook';
+import Filter from './Filter'
 
 function Administrative(props) {
     const [show, setShow] = useState(false);
@@ -57,12 +58,15 @@ function Administrative(props) {
     return (
         <div>
             <header>
+                
                 <Title />
+                
                 <SearchBar
                     getData={getData}
                     searchString={props.searchString}
                     setSearchString={props.setSearchString}
                 />
+                
                 <button onClick={() => setShowAdd(true)}>Add Book</button>
                 <AddBook 
                   onClose={() => setShowAdd(false)}
@@ -73,6 +77,7 @@ function Administrative(props) {
                   setBooks={props.setBooks}
                 />
             </header>
+            {/* <Filter /> */}
             {props.books.map(book => {
                 return (
                     <div className="book" key={book._id}>
@@ -86,7 +91,7 @@ function Administrative(props) {
                             : <p className="book-availability">checked out</p>
                         }
                         <div className="book-modal">
-                            <button onClick={() => onClick(book)}>More Info</button>
+                            <button onClick={() => onClick(book)}>Edit Info</button>
                         </div>
                     </div>
                 );

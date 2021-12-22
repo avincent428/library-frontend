@@ -6,6 +6,7 @@ import Title from "./Title";
 import Pages from "./Pages";
 import AddBook from "./AddBook";
 import Filter from "./Filter";
+import { Link } from 'react-router-dom'
 
 function Administrative(props) {
   const [show, setShow] = useState(false);
@@ -66,6 +67,7 @@ function Administrative(props) {
   return (
     <div>
       <header>
+        <Link to="/"><h3>User</h3></Link>
         <Title />
 
         <SearchBar

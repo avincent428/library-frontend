@@ -31,18 +31,18 @@ function Book(props) {
     axios.get("http://localhost:8000/books").then((res) => {
       const bookData = res.data;
       props.setSearchString(props.searchString.toLowerCase());
-      props.setBooks(
-        bookData.filter((book) => {
-          if (
-            (book.title.toLowerCase().includes(props.searchString) &&
-              goThroughWords(book.title.toLowerCase(), props.searchString)) ||
-            (book.authors[0].toLowerCase().includes(props.searchString) &&
-              goThroughWords(book.authors[0].toLowerCase(), props.searchString))
-          )
-            return true;
-          else return false;
-        })
-      );
+      const tempBooks = bookData.filter((book) => {
+        if (
+          (book.title.toLowerCase().includes(props.searchString) &&
+            goThroughWords(book.title.toLowerCase(), props.searchString)) ||
+          (book.authors[0].toLowerCase().includes(props.searchString) &&
+            goThroughWords(book.authors[0].toLowerCase(), props.searchString))
+        )
+          return true;
+        else return false;
+      });
+      props.setBooks(tempBooks);
+      props.setFilteredBooks(tempBooks);
     });
   }
 
@@ -56,9 +56,9 @@ function Book(props) {
           setSearchString={props.setSearchString}
         />
       </header>
-      <Filter />
+      <Filter books={props.books} setFilteredBooks={props.setFilteredBooks} />
 
-      {props.books.map((book) => {
+      {props.filteredBooks.map((book) => {
         return (
           <div className="book" key={book._id}>
             <img src={book.image} alt={book.title} className="book-image" />

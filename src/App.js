@@ -10,6 +10,7 @@ import Administrative from "./components/Administrative";
 
 function App() {
   const [books, setBooks] = useState([]);
+  const [filteredBooks, setFilteredBooks] = useState([]);
   const [searchString, setSearchString] = useState("");
 
   return (
@@ -23,6 +24,8 @@ function App() {
             <Administrative
               books={books}
               setBooks={setBooks}
+              filteredBooks={filteredBooks}
+              setFilteredBooks={setFilteredBooks}
               searchString={searchString}
               setSearchString={setSearchString}
             />
@@ -35,6 +38,8 @@ function App() {
             <Book
               books={books}
               setBooks={setBooks}
+              filteredBooks={filteredBooks}
+              setFilteredBooks={setFilteredBooks}
               searchString={searchString}
               setSearchString={setSearchString}
             />

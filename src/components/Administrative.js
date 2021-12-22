@@ -12,7 +12,6 @@ function Administrative(props) {
   const [show, setShow] = useState(false);
   const [showAdd, setShowAdd] = useState(false);
   const [modalInfo, setModalInfo] = useState("");
-  const [bookIndex, setBookIndex] = useState("");
 
   useEffect(() => {
     getData();
@@ -25,12 +24,15 @@ function Administrative(props) {
     let splitWords = words.split(" ");
     let splitString = str.split(" ");
     for (let i = 0; i < splitWords.length; i++) {
+      // splitWords[i] = splitWords[i].split("").filter(letter => letter.match(/[a-z]/i) !== null).join("")
+      // console.log(splitWords[i])
       for (let j = 0; j < splitString.length; j++) {
         if (
           splitWords[i].startsWith(props.searchString) ||
           splitWords[i] === splitString[j]
-        )
+          )
           return true;
+      
       }
     }
   }
@@ -40,9 +42,6 @@ function Administrative(props) {
       const bookData = res.data;
       props.setSearchString(props.searchString.toLowerCase());
       const tempBooks = bookData.filter((book) => {
-        // if (book.authors.includes("."))
-        //   book.authors.replace(".", "")
-        // console.log(book.authors)
         if (
           (book.title.toLowerCase().includes(props.searchString) &&
             goThroughWords(book.title.toLowerCase(), props.searchString)) ||
@@ -63,7 +62,6 @@ function Administrative(props) {
 
   function onClick(item) {
     setShow(true);
-    setBookIndex(props.books.indexOf(item));
     handleShowItem(item);
   }
 

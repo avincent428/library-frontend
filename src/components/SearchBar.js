@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
 function SearchBar({ searchString, setSearchString }) {
-
   function handleChange(event) {
     setSearchString(event.target.value);
   }
   return (
     <div>
       <form>
-        <input 
+        <input
+          className="search-bar"
           placeholder="Search"
           type="text"
           onChange={handleChange}

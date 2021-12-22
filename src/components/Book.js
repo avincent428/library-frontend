@@ -50,23 +50,32 @@ function Book(props) {
   return (
     <div>
       <header>
-        <Link to="administrative">
-          <h3>Administrative</h3>
-        </Link>
         <Title />
-        <SearchBar
-          getData={getData}
-          searchString={props.searchString}
-          setSearchString={props.setSearchString}
-        />
+        <Link to="administrative" className="no-link-decoration">
+          <h3 className="admin">Administrative</h3>
+        </Link>
       </header>
 
+      <SearchBar
+        getData={getData}
+        searchString={props.searchString}
+        setSearchString={props.setSearchString}
+      />
       <section>
-        <Filter books={props.books} setFilteredBooks={props.setFilteredBooks} />
-        <div>
+        <div className="aside">
+          <Filter
+            books={props.books}
+            setFilteredBooks={props.setFilteredBooks}
+          />
+        </div>
+        <div className="books-display">
           {props.filteredBooks.map((book) => {
             return (
-              <Link to={`/books/${book._id}`} key={book._id}>
+              <Link
+                to={`/books/${book._id}`}
+                key={book._id}
+                className="no-link-decoration"
+              >
                 <div className="book" key={book._id}>
                   <img
                     src={book.image}
@@ -78,9 +87,9 @@ function Book(props) {
                     <p>{book.authors[0]}</p>
                   </div>
                   {book.available ? (
-                    <p className="book-availability">available</p>
+                    <p className="available">Available</p>
                   ) : (
-                    <p className="book-availability">checked out</p>
+                    <p className="checked-out">Checked Out</p>
                   )}
                 </div>
               </Link>

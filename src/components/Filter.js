@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 
 function Filter(props) {
-  const [genreToggle, setGenreToggle] = useState({ open: false });
-  const [availabilityToggle, setAvailabilityToggle] = useState({ open: false });
-
   const [fantasyFilter, setFantasyFilter] = useState({ checked: true });
   const [juvFicFilter, setJuvFicFilter] = useState({ checked: true });
   const [ficFilter, setFicFilter] = useState({ checked: true });
@@ -22,17 +19,6 @@ function Filter(props) {
     checked: true,
     available: false,
   });
-
-  function handleGenreClick() {
-    const open = genreToggle.open;
-    setGenreToggle({ open: !open });
-  }
-
-  function handleAvailablilityClick() {
-    const open = availabilityToggle.open;
-    setAvailabilityToggle({ open: !open });
-    console.log(availabilityToggle.open);
-  }
 
   function handleGenreFilterClick(genre, genreFilter, setGenreFilter) {
     const checked = genreFilter.checked;
@@ -131,14 +117,10 @@ function Filter(props) {
     <div className="filter">
       Filters:
       <br />
-      <p className="genre-container" onClick={handleGenreClick}>
-        Genre
-      </p>
-      {genreToggle.open ? genreOptions() : null}
-      <p className="availability-container" onClick={handleAvailablilityClick}>
-        Availability
-      </p>
-      {availabilityToggle.open ? availabilityOptions() : null}
+      <p className="genre-container">Genre</p>
+      {genreOptions()}
+      <p className="availability-container">Availability</p>
+      {availabilityOptions()}
     </div>
   );
 }

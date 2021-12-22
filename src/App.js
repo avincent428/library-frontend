@@ -1,4 +1,5 @@
 import Book from "./components/Book";
+import BookDetails from "./components/BookDetails";
 import Filter from "./components/Filter";
 import SearchBar from "./components/SearchBar";
 import Title from "./components/Title";
@@ -45,6 +46,15 @@ function App() {
             />
           )}
         ></Route>
+
+        <Route 
+          path="/books/:id" 
+          render={(routerProps) =>
+            <BookDetails 
+              match={routerProps.match} 
+            />} 
+        />
+
       </main>
     </div>
   );

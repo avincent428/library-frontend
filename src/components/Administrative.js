@@ -40,6 +40,9 @@ function Administrative(props) {
       const bookData = res.data;
       props.setSearchString(props.searchString.toLowerCase());
       const tempBooks = bookData.filter((book) => {
+        // if (book.authors.includes("."))
+        //   book.authors.replace(".", "")
+        // console.log(book.authors)
         if (
           (book.title.toLowerCase().includes(props.searchString) &&
             goThroughWords(book.title.toLowerCase(), props.searchString)) ||

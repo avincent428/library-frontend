@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from "react";
+import HomeBtn from "./HomeBtn"
 
 function BookDetails(props) { 
 
@@ -16,14 +17,15 @@ function BookDetails(props) {
     if (!book) return (<div>Loading</div>)
     
     return (
+      <>
         <div className="book-details">
           <img
             src={book.image}
-            alt={book.source}
+            alt={book.source} 
           />
           <div className="details">
             <h2>Title: {book.title}</h2>
-            {/* Author:<h2>{book.authors[0]}</h2> */}
+            {/* <h2>Author:{book.authors[0]}</h2> */}
             <h2>Genre: {book.genre}</h2>
             <h2>ISBN: {book.isbn}</h2>
             <h2>Library Location: {book.libraryLocation}</h2>
@@ -36,6 +38,9 @@ function BookDetails(props) {
           </div>
           <p className="book-availability">{book.availability}</p>
         </div>
+
+        <HomeBtn />
+      </>
     );
 
 }

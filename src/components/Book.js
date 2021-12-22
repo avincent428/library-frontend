@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 import Title from "./Title";
 import Pages from "./Pages";
 import Filter from "./Filter";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 function Book(props) {
   useEffect(() => {
@@ -50,7 +50,9 @@ function Book(props) {
   return (
     <div>
       <header>
-        <Link to="administrative"><h3>Administrative</h3></Link>
+        <Link to="administrative">
+          <h3>Administrative</h3>
+        </Link>
         <Title />
         <SearchBar
           getData={getData}
@@ -58,26 +60,34 @@ function Book(props) {
           setSearchString={props.setSearchString}
         />
       </header>
-      <Filter books={props.books} setFilteredBooks={props.setFilteredBooks} />
 
-      {props.filteredBooks.map((book) => {
-        return (
-          <Link to={`/books/${book._id}`} key={book._id}>
-            <div className="book" key={book._id}>
-              <img src={book.image} alt={book.title} className="book-image" />
-              <div className="book-info">
-                <p>{book.title}</p>
-                <p>{book.authors[0]}</p>
-              </div>
-              {book.available ? (
-                <p className="book-availability">available</p>
-              ) : (
-                <p className="book-availability">checked out</p>
-              )}
-            </div>
-          </Link>
-        );
-      })}
+      <section>
+        <Filter books={props.books} setFilteredBooks={props.setFilteredBooks} />
+        <div>
+          {props.filteredBooks.map((book) => {
+            return (
+              <Link to={`/books/${book._id}`} key={book._id}>
+                <div className="book" key={book._id}>
+                  <img
+                    src={book.image}
+                    alt={book.title}
+                    className="book-image"
+                  />
+                  <div className="book-info">
+                    <p>{book.title}</p>
+                    <p>{book.authors[0]}</p>
+                  </div>
+                  {book.available ? (
+                    <p className="book-availability">available</p>
+                  ) : (
+                    <p className="book-availability">checked out</p>
+                  )}
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
       <Pages />
     </div>
   );

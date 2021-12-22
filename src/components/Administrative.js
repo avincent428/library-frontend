@@ -89,7 +89,7 @@ function Administrative(props) {
       <Filter books={props.books} setFilteredBooks={props.setFilteredBooks} />
       {props.filteredBooks.map((book) => {
         return (
-          <div className="book" key={book._id}>
+          <div className="book" key={book._id} onClick={() => onClick(book)}>
             <img src={book.image} alt={book.title} className="book-image" />
             <div className="book-info">
               <p>{book.title}</p>
@@ -101,7 +101,6 @@ function Administrative(props) {
               <p className="book-availability">checked out</p>
             )}
             <div className="book-modal">
-              <button onClick={() => onClick(book)}>Edit Info</button>
             </div>
           </div>
         );

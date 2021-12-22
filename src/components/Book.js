@@ -4,6 +4,7 @@ import SearchBar from "./SearchBar";
 import Title from "./Title";
 import Pages from "./Pages";
 import Filter from "./Filter";
+import { Link } from 'react-router-dom'
 
 function Book(props) {
   useEffect(() => {
@@ -49,6 +50,7 @@ function Book(props) {
   return (
     <div>
       <header>
+        <Link to="administrative"><h3>Administrative</h3></Link>
         <Title />
         <SearchBar
           getData={getData}

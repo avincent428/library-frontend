@@ -47,7 +47,13 @@ function App() {
           )}
         ></Route>
 
-      <Route path="/books/:id" render={(routerProps) => <BookDetails match={routerProps.match} />} />
+        <Route 
+          path="/books/:id" 
+          render={(routerProps) =>
+            <BookDetails 
+              match={routerProps.match} 
+            />} 
+        />
 
       </main>
     </div>

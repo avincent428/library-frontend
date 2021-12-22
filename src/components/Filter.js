@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function Filter(props) {
-  const [fantasyFilter, setFantasyFilter] = useState({ checked: true });
+  const [fantasyFilter, setFantasyFilter] = useState({ checked: false });
   const [juvFicFilter, setJuvFicFilter] = useState({ checked: true });
   const [ficFilter, setFicFilter] = useState({ checked: true });
   const [scifiFilter, setSciFiFilter] = useState({ checked: true });
@@ -19,6 +19,15 @@ function Filter(props) {
     checked: true,
     available: false,
   });
+
+  function filterCheck() {
+    return (
+      fantasyFilter.checked ||
+      juvFicFilter.checked ||
+      ficFilter.checked ||
+      scifiFilter.checked
+    );
+  }
 
   function handleGenreFilterClick(genre, genreFilter, setGenreFilter) {
     const checked = genreFilter.checked;
@@ -115,11 +124,13 @@ function Filter(props) {
 
   return (
     <div className="filter">
-      Filter By:
+      <h2 className="filter-title">Filter By:</h2>
       <br />
-      <p className="genre-container">Genre</p>
-      {genreOptions()}
-      <p className="availability-container">Availability</p>
+      <div className="genre-container">
+        <p className="genre">Genre</p>
+        {genreOptions()}
+      </div>
+      <p className="availability">Availability</p>
       {availabilityOptions()}
     </div>
   );

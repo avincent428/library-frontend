@@ -1,31 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+html {
+  background-color: rgb(243, 243, 243);
+  font-family: "Roboto", sans-serif;
+}
+
 header {
   display: flex;
   justify-content: space-around;
-  margin-top: 50px;
+  margin-bottom: 50px;
+  background-color: white;
+  margin-top: -10px;
+  height: 100px;
+  margin-right: -10px;
 }
 
 section {
   display: flex;
   justify-content: space-around;
-  margin-top: 50px;
+  margin-top: 30px;
+  margin-left: -191px;
+  margin-right: 200px;
 }
 
 .book {
-  margin-right: 400px;
+  margin-left: 25px;
   display: flex;
-  border: solid black 1px;
   height: 120px;
   width: 700px;
   cursor: pointer;
   justify-content: space-between;
-  margin-bottom: 1px;
+  border-bottom: lightgray solid 1px;
 }
 
 .filter {
-  border-right: 1px solid black;
   padding-right: 200px;
   width: 200px;
   margin-left: 60px;
+  margin-top: 25px;
 }
 
 .book-image {
@@ -38,12 +50,19 @@ section {
 .book-info {
   height: 150px;
   width: 300px;
-  margin-right: 200px;
+  margin-right: 165px;
   margin-top: 15px;
+  color: black;
 }
 
-.book-availability {
+.available {
   color: green;
+  margin-right: 40px;
+  margin-top: 50px;
+}
+
+.checked-out {
+  color: red;
   margin-right: 20px;
   margin-top: 50px;
 }
@@ -54,11 +73,12 @@ section {
 }
 
 .genre-container {
-  cursor: pointer;
+  padding-bottom: 10px;
 }
 
-.availability-container {
-  cursor: pointer;
+.availability {
+  border-top: solid 1px rgb(173, 173, 173);
+  padding-top: 24px;
 }
 
 .modal {
@@ -91,6 +111,80 @@ section {
   padding: 10px;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
+}
+
+.books-display {
+  margin-left: -260px;
+  background-color: white;
+  width: 750px;
+  padding-top: 20px;
+}
+
+.search-bar {
+  margin-bottom: -10px;
+  margin-left: 408px;
+  width: 156px;
+  height: 30px;
+  border: none;
+  box-shadow: 0 0 1px rgb(173, 173, 173);
+  padding-left: 5px;
+  color: rgb(12, 12, 12);
+}
+
+.aside {
+  margin-left: 200px;
+  margin-top: -10px;
+}
+
+.add-book-button {
+  float: right;
+  margin-right: 265px;
+  height: 34px;
+  width: 100px;
+}
+
+.title-container {
+  background-color: rgb(35, 125, 243);
+  height: 70px;
+  width: 200px;
+  text-align: center;
+  padding-top: 50px;
+  margin-top: -19px;
+  margin-left: -45px;
+  margin-right: -26px;
+}
+
+.title {
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+}
+
+.no-link-decoration {
+  text-decoration: none;
+}
+.user {
+  color: black;
+  margin: 38px 78vw 0px 0px;
+  font-size: 20px;
+}
+
+.admin {
+  color: black;
+  margin: 38px 72vw 0px 0px;
+  font-size: 20px;
+}
+
+.add-book-button {
+  background-color: rgb(35, 125, 243);
+  color: white;
+  border: none;
+}
+
+.filter-title {
+  border-bottom: solid 1px rgb(173, 173, 173);
+  margin: 0 auto;
+  padding-bottom: 15px;
 }
 
 /* AddBook text boxes */

@@ -70,31 +70,38 @@ function Administrative(props) {
   return (
     <div>
       <header>
-        <Link to="/">
-          <h3>User</h3>
-        </Link>
         <Title />
-
-        <SearchBar
-          getData={getData}
-          searchString={props.searchString}
-          setSearchString={props.setSearchString}
-        />
-
-        <button onClick={() => setShowAdd(true)}>Add Book</button>
-        <AddBook
-          onClose={() => setShowAdd(false)}
-          showAdd={showAdd}
-          modalInfo={modalInfo}
-          setModalInfo={setModalInfo}
-          books={props.books}
-          setBooks={props.setBooks}
-        />
+        <Link to="/" className="no-link-decoration">
+          <h3 className="user">User</h3>
+        </Link>
       </header>
 
+      <button className="add-book-button" onClick={() => setShowAdd(true)}>
+        Add Book
+      </button>
+      <AddBook
+        onClose={() => setShowAdd(false)}
+        showAdd={showAdd}
+        modalInfo={modalInfo}
+        setModalInfo={setModalInfo}
+        books={props.books}
+        setBooks={props.setBooks}
+      />
+
+      <SearchBar
+        getData={getData}
+        searchString={props.searchString}
+        setSearchString={props.setSearchString}
+      />
+
       <section>
-        <Filter books={props.books} setFilteredBooks={props.setFilteredBooks} />
-        <div>
+        <div className="aside">
+          <Filter
+            books={props.books}
+            setFilteredBooks={props.setFilteredBooks}
+          />
+        </div>
+        <div className="books-display">
           {props.filteredBooks.map((book) => {
             return (
               <div
@@ -108,9 +115,9 @@ function Administrative(props) {
                   <p>{book.authors[0]}</p>
                 </div>
                 {book.available ? (
-                  <p className="book-availability">available</p>
+                  <p className="available">Available</p>
                 ) : (
-                  <p className="book-availability">checked out</p>
+                  <p className="checked-out">Checked Out</p>
                 )}
                 <div className="book-modal"></div>
               </div>

@@ -57,6 +57,10 @@ section {
   cursor: pointer;
 }
 
+.availability-container {
+  cursor: pointer;
+}
+
 .modal {
   position: fixed;
   left: 0;
@@ -74,7 +78,8 @@ section {
   background-color: #fff;
 }
 
-.modal-header, .modal-footer {
+.modal-header,
+.modal-footer {
   padding: 10px;
 }
 

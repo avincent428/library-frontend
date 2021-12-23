@@ -1,0 +1,336 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+html {
+  background-color: rgb(243, 243, 243);
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 50px;
+  background-color: white;
+  margin-top: -10px;
+  height: 100px;
+  margin-right: -10px;
+}
+
+section {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+  margin-left: -191px;
+  margin-right: 200px;
+}
+
+.book {
+  margin-left: 25px;
+  display: flex;
+  height: 120px;
+  width: 700px;
+  cursor: pointer;
+  justify-content: space-between;
+  border-bottom: lightgray solid 1px;
+}
+
+.filter {
+  padding-right: 200px;
+  width: 200px;
+  margin-left: 60px;
+  margin-top: 25px;
+}
+
+.book-image {
+  width: 75px;
+  height: 100px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.book-info {
+  height: 150px;
+  width: 300px;
+  margin-right: 165px;
+  margin-top: 15px;
+  color: black;
+}
+
+.available {
+  color: green;
+  margin-right: 40px;
+  margin-top: 50px;
+}
+
+.checked-out {
+  color: red;
+  margin-right: 20px;
+  margin-top: 50px;
+}
+
+.container {
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.genre-container {
+  padding-bottom: 10px;
+}
+
+.availability {
+  border-top: solid 1px rgb(173, 173, 173);
+  padding-top: 24px;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  width: 500px;
+  background-color: #fff;
+}
+
+.modal-header,
+.modal-footer {
+  padding: 10px;
+}
+
+.modal-title {
+  margin: 0;
+}
+
+.modal-body {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.books-display {
+  margin-left: -260px;
+  background-color: white;
+  width: 750px;
+  padding-top: 20px;
+}
+
+.search-bar {
+  margin-bottom: -10px;
+  margin-left: 408px;
+  width: 156px;
+  height: 30px;
+  border: none;
+  box-shadow: 0 0 1px rgb(173, 173, 173);
+  padding-left: 5px;
+  color: rgb(12, 12, 12);
+}
+
+.aside {
+  margin-left: 200px;
+  margin-top: -10px;
+}
+
+.add-book-button {
+  float: right;
+  margin-right: 265px;
+  height: 34px;
+  width: 100px;
+}
+
+.title-container {
+  background-color: rgb(35, 125, 243);
+  height: 70px;
+  width: 200px;
+  text-align: center;
+  padding-top: 50px;
+  margin-top: -19px;
+  margin-left: -45px;
+  margin-right: -26px;
+}
+
+.title {
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+}
+
+.no-link-decoration {
+  text-decoration: none;
+}
+.user {
+  color: black;
+  margin: 38px 78vw 0px 0px;
+  font-size: 20px;
+}
+
+.admin {
+  color: black;
+  margin: 38px 72vw 0px 0px;
+  font-size: 20px;
+}
+
+.add-book-button {
+  background-color: rgb(35, 125, 243);
+  color: white;
+  border: none;
+}
+
+.filter-title {
+  border-bottom: solid 1px rgb(173, 173, 173);
+  margin: 0 auto;
+  padding-bottom: 15px;
+}
+
+/* AddBook text boxes */
+
+#title-text-box {
+  margin-left: 5px;
+}
+
+#title-label {
+  margin-left: 67px;
+}
+
+#author-text-box {
+  margin-left: 5px;
+}
+
+#author-label {
+  margin-left: 52px;
+}
+
+#genre-text-box {
+  margin-left: 5px;
+}
+
+#genre-label {
+  margin-left: 58px;
+}
+
+#isbn-text-box {
+  margin-left: 5px;
+}
+
+#isbn-label {
+  margin-left: 61px;
+}
+
+#format-text-box {
+  margin-left: 5px;
+}
+
+#format-label {
+  margin-left: 51px;
+}
+
+#available-text-box {
+  margin-left: 5px;
+}
+
+#available-label {
+  margin-left: 36px;
+}
+
+#description-text-box {
+  margin-left: 5px;
+}
+
+#description-label {
+  margin-left: 22px;
+}
+
+#published-text-box {
+  margin-left: 5px;
+}
+
+#location-text-box {
+  margin-left: 5px;
+}
+
+#location-label {
+  margin-left: 40px;
+}
+
+#image-text-box {
+  margin-left: 5px;
+}
+
+#image-label {
+  margin-left: 21px;
+}
+
+/* Edit Info Text Boxes */
+
+#edit-title-label {
+  margin-left: 67px;
+}
+
+#edit-title-input {
+  margin-left: 5px;
+}
+
+#edit-author-label {
+  margin-left: 51px;
+}
+
+#edit-author-input {
+  margin-left: 5px;
+}
+
+#edit-genre-label {
+  margin-left: 57px;
+}
+
+#edit-genre-input {
+  margin-left: 5px;
+}
+
+#edit-published-input {
+  margin-left: 5px;
+}
+
+#edit-isbn-label {
+  margin-left: 59px;
+}
+
+#edit-isbn-input {
+  margin-left: 5px;
+}
+
+#edit-format-label {
+  margin-left: 50px;
+}
+
+#edit-format-input {
+  margin-left: 5px;
+}
+
+#edit-description-label {
+  margin-left: 21px;
+}
+
+#edit-description-input {
+  margin-left: 5px;
+}
+
+#edit-location-label {
+  margin-left: 39px;
+}
+
+#edit-location-input {
+  margin-left: 5px;
+}
+
+#edit-image-label {
+  margin-left: 21px;
+}
+
+#edit-image-input {
+  margin-left: 5px;
+}

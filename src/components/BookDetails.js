@@ -26,15 +26,17 @@ function BookDetails(props) {
           <div className="details">
             <h2>Title: {book.title}</h2>
             {/* <h2>Author:{book.authors[0]}</h2> */}
-            <h2>Genre: {book.genre}</h2>
-            <h2>ISBN: {book.isbn}</h2>
-            <h2>Library Location: {book.libraryLocation}</h2>
-            <h2>Format: {book.format}</h2>
-            <h2>Description: {book.description}</h2>
-            <h2>Year Published: {book.published}</h2>
-            <h2>Copyright: {book.copyright}</h2>
-            <h2>Shopping Link: {book.shoppingLink}</h2>
-            <h2>Subject: {book.subject}</h2>
+            <h3>Genre: {book.genre}</h3>
+            <h3>Description: {book.description}</h3>
+
+            
+            <h4>Library Location: {book.libraryLocation}</h4>
+            <h4>Format: {book.format}</h4>
+            <h4>ISBN: {book.isbn}</h4>
+            <h4>Year Published: {book.published}</h4>
+            <h4>Copyright: {book.copyright}</h4>
+            <h4>Shopping Link: {book.shoppingLink}</h4>
+            <h4>Subject: {book.subject}</h4>
           </div>
           <p className="book-availability">{book.availability}</p>
         </div>

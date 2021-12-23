@@ -36,9 +36,9 @@ function Administrative(props) {
       }
     }
   }
-
+  
   function getData() {
-    axios.get("http://localhost:8000/books").then((res) => {
+    axios.get(process.env.REACT_APP_API_URL + "books").then((res) => {
       const bookData = res.data;
       props.setSearchString(props.searchString.toLowerCase());
       const tempBooks = bookData.filter((book) => {

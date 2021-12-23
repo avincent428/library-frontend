@@ -7,7 +7,7 @@ function Modal(props) {
     }
 
     function editBookInfo(event, id) {
-        axios.put(`http://localhost:8000/books/${id}`, props.modalInfo).then((res) => {
+        axios.put(process.env.REACT_APP_API_URL + `books/${id}`, props.modalInfo).then((res) => {
             const bookData = res.data;
             props.setBooks({...props.books, bookData});
             event.preventDefault();
@@ -15,7 +15,7 @@ function Modal(props) {
     }
 
     function deleteBook(event, id) {
-        axios.delete(`http://localhost:8000/books/${id}`).then((res) => {
+        axios.delete(process.env.REACT_APP_API_URL + `books/${id}`).then((res) => {
             const bookData = res.data;
             props.setBooks(bookData);
             event.preventDefault();

@@ -7,7 +7,7 @@ function AddBook({modalInfo, books, setModalInfo, showAdd, setBooks, onClose}) {
         return null
 
     function onClick(event) {
-        axios.post(`http://localhost:8000/books/`, modalInfo).then((res) => {
+        axios.post(process.env.REACT_APP_API_URL + `books/`, modalInfo).then((res) => {
             const bookData = res.data;
             setBooks(books => [...books, bookData])
             event.preventDefault()

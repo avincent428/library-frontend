@@ -7,7 +7,7 @@ function BookDetails(props) {
     const [book, setBook] = useState([]);
 
     useEffect(() => {
-      fetch(`http://localhost:8000/books/${props.match.params.id}`)
+      fetch(process.env.REACT_APP_API_URL + `books/${props.match.params.id}`)
       .then(res=> res.json())
       .then(json => {
         setBook(json);

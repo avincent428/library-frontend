@@ -7,6 +7,7 @@ import Filter from "./Filter";
 import { Link } from "react-router-dom";
 
 function Book(props) {
+  // console.log()
   useEffect(() => {
     getData();
   }, [props.searchString]);
@@ -29,7 +30,7 @@ function Book(props) {
   }
 
   function getData() {
-    axios.get("http://localhost:8000/books").then((res) => {
+    axios.get(process.env.REACT_APP_API_URL + "books").then((res) => {
       const bookData = res.data;
       props.setSearchString(props.searchString.toLowerCase());
       const tempBooks = bookData.filter((book) => {

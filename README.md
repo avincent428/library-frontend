@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# Project 3 - Library Registry
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Our app is a library with both a user and an administrative side. The admin is able to register books to the library, have the checkout information, and overall edit various aspects of the books. The user is able to search for specific books using a search bar and can click on them to learn further information like author and description. In addition, we also included a filter that is able to search books from their genre. 
 
-## Available Scripts
+# List of Features / Project Summary
+- Our frontend was built using React and React Router as a user interface in order to implement components like displaying each book, the searchbar, the genre filter, etc. 
+- Our backend has a functioning JSON API built by the team using Express and Mongoose.
+- Our administrative feature is our Gold (MVP) and was spearheaded by Scott, Silver (MVP) to our genre filter that was worked on by Amiel, and Bronze (MVP) to our clickable page feature worked on by Daniel. 
+- Amiel took charge as Scrum leader and gathered progress from all team members. We held discussion topics each day of the project in order to catch up on the progress made and what features needed more attention. All members were in agreement when git pushes commits were made to the final project. 
 
-In the project directory, you can run:
+User Stories:
+- As an administrator I want a database that will have information about the title, author, etc…
+- As an administrator I want a database that will tell me if the item is checked out.
+- As an administrator I want a database that will keep track of who has books checked out.
+- As an administrator I want a database that will allow me to add new books as the library gets them.
+- As an administrator I want a database that will allow me to check out books to library patrons.
+- As a user I want a database that will allow me to search for books by title, author, genere, etc…
+- As a user I want a webpage that will have a place for the library schedule.
+- As a user/administrator I want a link that will show me a map of the library with the location of the book.
 
-### `npm start`
+# List of Technologies Used
+- Javascript
+- CSS
+- HTML
+- React
+- React Router
+- Express 
+- Mongoose
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Getting Started
+This project was deployed on heroku: [Project-3-Library](https://front-end-library.herokuapp.com/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Wireframes
+Early concept for app!
+![image](https://user-images.githubusercontent.com/92268027/147906589-7c7fc7cf-14d4-4edf-a6fe-88b009241a46.png)
